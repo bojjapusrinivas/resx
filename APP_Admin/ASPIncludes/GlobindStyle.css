@@ -1,0 +1,114 @@
+.reporttitle
+{
+    BORDER-RIGHT: #06566A 1px solid;
+    PADDING-RIGHT: 2px;
+    BORDER-TOP: #06566A 1px solid;
+    PADDING-LEFT: 2px;
+    FONT-WEIGHT: bold;
+    MARGIN-BOTTOM: 5px;
+    PADDING-BOTTOM: 2px;
+    BORDER-LEFT: #06566A 1px solid;
+    WIDTH: 100%;
+    CURSOR: pointer;
+    COLOR: #800000;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: #06566A 1px solid;
+    BACKGROUND-COLOR: #b2b2b2;
+    TEXT-ALIGN: left
+}
+
+.field1
+{
+font-family: Arial,Helvetcia,Verdana;;
+font-size: 10pt;
+color: #06566A;
+font-weight: bold;
+}
+.field2
+{
+	font-family: Arial, Helvetcia, Verdana;
+	font-size: 10pt
+}
+
+.field3
+{
+	font-family: Arial, Helvetica, Verdana;
+	font-size: 10pt; 
+	font-weight: normal;
+	color: #06566A
+}
+.cpttext
+{	
+	font-family: Arial, Helvetica, Verdana;
+	font-size:10pt;
+	font-weight: bold;
+	color: #06566A;
+	text-transform:capitalize;
+}
+.menutitle
+{
+    BORDER-RIGHT: #06566A 1px solid;
+    PADDING-RIGHT: 2px;
+    BORDER-TOP: #06566A 1px solid;
+    PADDING-LEFT: 2px;
+    FONT-WEIGHT: bold;
+    MARGIN-BOTTOM: 5px;
+    PADDING-BOTTOM: 2px;
+    BORDER-LEFT: #06566A 1px solid;
+    WIDTH: 100%;
+    CURSOR: pointer;
+    COLOR: #800000;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: #06566A 1px solid;
+    BACKGROUND-COLOR: #E2E2E2;
+    TEXT-ALIGN: left
+}
+.submenutitle
+{
+    BORDER-RIGHT: #000000 1px solid;
+    PADDING-RIGHT: 2px;
+    BORDER-TOP: #000000 1px solid;
+    PADDING-LEFT: 2px;
+    FONT-WEIGHT: bold;
+    MARGIN-BOTTOM: 2px;
+    PADDING-BOTTOM: 2px;
+    BORDER-LEFT: #000000 1px solid;
+    WIDTH: 100%;
+    CURSOR: pointer;
+    COLOR: #000000;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: #000000 1px solid;
+    BACKGROUND-COLOR: #EFEFE7;
+    TEXT-ALIGN: left
+}
+.submenu
+{
+    FONT-SIZE: 12px;
+    MARGIN-BOTTOM: 0.5em;
+    MARGIN-LEFT: 10px;
+    WIDTH: 100%;
+    FONT-FAMILY: verdana;
+    BACKGROUND-COLOR: #F7F7F7   
+    
+}
+.subsubmenu
+{
+    FONT-SIZE: 12px;
+    MARGIN-BOTTOM: 0.5em;
+    MARGIN-LEFT: 10px;
+    WIDTH: 100%;
+    FONT-FAMILY: verdana;
+    BACKGROUND-COLOR: #F7F7F7;
+    BORDER-RIGHT: #06566A 1px solid;
+    BORDER-TOP: #06566A 1px solid;
+    PADDING-TOP: 2px;
+    BORDER-LEFT: #06566A 1px solid;
+    PADDING-LEFT: 5px;
+    BORDER-BOTTOM: #06566A 1px solid;
+    PADDING-BOTTOM: 2px;
+}
+.text
+{
+    COLOR: black;
+    FONT-FAMILY: Verdana
+}

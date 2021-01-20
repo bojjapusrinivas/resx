@@ -1,0 +1,443 @@
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="white">
+<%if session("user_name")<>"" then%>
+<tr>
+  <td align="center" bgcolor="#3767A6"><font face=verdana size=2 color="#ffffff"><b><%=session("user_name")%>
+   [<%if trim(session("user_type"))="4" then 
+	Response.Write ("Administrator") 
+    elseif trim(session("user_type"))="2" then 
+	Response.Write ("IGMs")
+   else Response.Write ("User") 
+   end if%>]
+  </b></font></td>
+</tr>
+<tr>
+  <td height="1" colspan="4" bgcolor="#73AEBF"></td>
+</tr> 
+<%end if%>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="white">
+
+
+<%
+if trim(session("user_type"))="10"  then%>
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_inner.asp" class="buthm">Help</a></td>
+  <td width="1" rowspan="15" bgcolor="#217789"></td>
+</tr>
+<!--tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+   <tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="Frm_SIS_Final_ViewNu.asp?ttype=2&ppost=14" class="buthm">Viewed Naukri Requests</a></td>  
+</tr-->
+<%end if%>
+
+
+
+<%
+if trim(session("user_type"))="4"  then%>
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_inner.asp" class="buthm">Help</a></td>
+  <td width="1" rowspan="15" bgcolor="#217789"></td>
+</tr>
+
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+
+ <tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_View.asp" class="buthm">Hyd Pending Requests</a></td>  
+</tr>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_Final_View.asp" class="buthm">Hyd Viewed Requests</a></td>  
+</tr>
+
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+
+ <!--tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_ViewGur.asp" class="buthm">Gur Pending Requests</a></td>  
+</tr>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_Final_ViewGur.asp" class="buthm">Gur Viewed Requests</a></td>  
+</tr-->
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="Frm_App_Search.asp" class="buthm">Search Requests</a></td>  
+</tr>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+<!--for Noukari Applications -->
+ <!--tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_ViewAllNu.asp" class="buthm">Pending Naukri Requests</a></td>  
+</tr>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_Final_ViewNu.asp" class="buthm">Viewed Naukri Requests</a></td>  
+</tr-->
+<!-- Noukari applications end -->
+
+
+<!--tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="Frm_App_SearchNu.asp" class="buthm">Search Naukri Requests</a></td>  
+</tr>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="Frm_SIS_Final_ViewDecline.asp" class="buthm">Declined Requests</a></td>  
+</tr>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr>
+
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="Frm_SIS_ViewATN.asp" class="buthm">Test Evaluation</a></td>  
+</tr-->
+
+<%end if%>
+
+
+<%'' For aneesa Login
+if  trim(session("user_type"))="1" then%>
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_inner.asp" class="buthm">Help</a></td>
+  <td width="1" rowspan="15" bgcolor="#217789"></td>
+</tr>
+
+<!--tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+
+ <tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_View.asp" class="buthm">Hyd Pending Requests</a></td>  
+</tr-->
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+
+ <tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_ViewAll.asp" class="buthm">All Pending Requests</a></td>  
+</tr>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+<!--tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_Final_ViewGur.asp" class="buthm">Gur Viewed Requests</a></td>  
+</tr>
+<tr>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr--> 
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_Final_View.asp" class="buthm">All Viewed Requests</a></td>  
+</tr>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_Final_ViewR2.asp" class="buthm">Rank 2 Requests</a></td>  
+</tr>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+
+<!--for Noukari Applications -->
+ <!--tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_ViewAllNu.asp" class="buthm">Pending Naukri Requests(All)</a></td>  
+</tr>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_Final_ViewNu.asp" class="buthm">Viewed Naukri Requests</a></td>  
+</tr-->
+<!-- Noukari applications end -->
+
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="Frm_App_Search.asp" class="buthm">Search Requests</a></td>  
+</tr>
+<!--tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr>
+
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="Frm_SIS_ViewATN.asp" class="buthm">Test Evaluation</a></td>  
+</tr-->
+
+<%end if%>
+
+
+
+<%'' for Padmaja and Maha logins only
+
+if trim(session("user_type"))="5" or trim(session("user_type"))="7" then%>
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_inner.asp" class="buthm">Help</a></td>
+  <td width="1" rowspan="15" bgcolor="#217789"></td>
+</tr>
+
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+
+ <tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_ViewAll.asp" class="buthm">Pending Requests</a></td>  
+</tr>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_Final_View.asp" class="buthm">Viewed Requests</a></td>  
+</tr>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_Final_ViewR2.asp" class="buthm">Rank 2 Requests</a></td>  
+</tr>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_Search.asp" class="buthm">Search Requests</a></td>  
+</tr>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+<!--for Noukari Applications -->
+ <!--tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_ViewAllNu.asp" class="buthm">Pending Naukri Requests</a></td>  
+</tr>
+
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr>  
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_Final_ViewNu.asp" class="buthm">Viewed Naukri Requests</a></td>  
+</tr>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr>
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_RCallNu.asp" class="buthm">Ready to Call Naukri</a></td>  
+</tr-->
+<!-- Noukari applications end -->
+<!--tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr> 
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="Frm_App_SearchNu.asp" class="buthm">Search Naukri Requests</a></td>  
+</tr-->
+<%end if%>
+
+<%if trim(session("user_type")) <>"2" then%>
+
+<!--tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr>
+
+<tr bgcolor="#ffff4b">
+  <td height="21" width="8" bgcolor="#ffff4b"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="RegistrationSlots.asp" class="buthm">Add Registrations</a></td>  
+</tr>
+
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr>
+<tr bgcolor="#ffff4b">
+  <td height="21" width="8" bgcolor="#ffff4b"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="Frm_SIS_ViewSelSlotsInt.asp" class="buthm">Add Interviews</a></td>  
+</tr-->
+
+<%end if%>
+
+<%if trim(session("user_type"))="6" then%>
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="Frm_SIS_Final_Decline.asp" class="buthm">Declined</a></td>
+  <td width="1" rowspan="15" bgcolor="#217789"></td>
+</tr>
+
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr>
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="Frm_SIS_Final_GurDecline.asp" class="buthm">Gurgaon Declined</a></td>
+  <td width="1" rowspan="15" bgcolor="#217789"></td>
+</tr>
+ <tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr>
+<%end if%>
+<%if trim(session("user_type"))="1" then%>
+
+<!--tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr>
+<tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_sis_User.asp" class="buthm">Add User</a></td>  
+</tr>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr-->
+<%end if%> 
+<%if trim(session("user_type"))="4" then%>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr>
+<tr bgcolor="#ffff4b">
+  <td height="21" width="8" bgcolor="#ffff4b"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="Frm_SIS_View_1.asp" class="buthm">Interview Send Mails</a></td>  
+</tr>
+
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr>
+<tr bgcolor="#ffff4b">
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif"  border="0"></td>
+  <td colspan="2" valign="middle"><a href="Frm_SIS_ViewSelectedSlots.asp" class="buthm">View Selected Slots</a></td>  
+</tr>
+<%end if%>
+<% ' for Raghu purpose
+if trim(session("user_type"))="8" then%>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr>
+<tr bgcolor="#ffff4b">
+  <td height="21" width="8" bgcolor="#ffff4b"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="RegistrationSlots.asp" class="buthm">Add Hyd Registrations</a></td>  
+</tr>
+
+<%else%>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr>
+<!--tr bgcolor="#ffff4b">
+  <td height="21" width="8" bgcolor="#ffff4b"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="Frm_SIS_ViewSelSlotsInt.asp" class="buthm">Add Interviews</a></td>  
+</tr-->
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr>
+
+<%end if%>
+
+
+<% ' for Raghu purpose
+if trim(session("user_type"))="20" then%>
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"></td>
+</tr>
+<tr bgcolor="#ffff4b">
+  <td height="21" width="8" bgcolor="#ffff4b"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="Frm_SIS_Final_View.asp?user_type=20&ppost=7" class="buthm">DTP 2012 Selected Resumes
+	</a></td>  
+</tr>
+
+<%End if%>
+ <tr>
+  <td height="21" width="8"></td>
+  <td valign="middle" width="17"><img src="../Images/bulleta.gif" border="0"></td>
+  <td colspan="2" valign="middle"><a href="frm_SIS_Logout.asp" class="buthm">Logout</a></td>  
+</tr>
+
+ 
+<tr>
+  <td height="1" colspan="4" bgcolor="#3767A6"><%'=trim(session("user_type"))%></td>
+</tr>
+</table>

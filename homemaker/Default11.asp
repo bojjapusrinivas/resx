@@ -1,0 +1,2 @@
+<% response.redirect("WorkFromHome.asp") %>
+

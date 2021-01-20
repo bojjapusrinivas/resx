@@ -1,0 +1,281 @@
+
+
+<!--#include file="ASPIncludes/DBopen.asp"-->
+<!--#include file="ASPIncludes/ADOVBS.inc"-->
+<!--include file="ASPIncludes/SendEmail.asp"-->
+
+
+<%
+function fnchecked(val1,val2)
+		if (strComp(val1,val2,0) = 0 ) then
+			fnchecked= "checked"
+		else
+			fnchecked= ""
+		end if
+end function
+
+if trim(request("rId")) <> "" then
+
+   seloppt = "OptResPho" & trim(request("rId"))
+  ' Response.write (trim(request("rId")))
+   'Response.write   request(seloppt)
+'Interview_Gurgaon_Details
+if trim(request(seloppt)) <> "" then  'and isnull(trim(request(seloppt))) then
+con.open "Provider="&drivertype&";data source="&servertype&";uid="&userid&";pwd="&pwd&";initial catalog="&trim(dbname) 
+ 
+sqlstr="insert into Interview_Hyd_Details (Rec_ID,Profile) values(" & trim(request("rId")) & ",'" & request(seloppt) & "')"
+con.execute sqlstr
+con.close()
+
+response.write sqlstr
+response.redirect("RegistrationSlots.asp")
+end if
+
+end if
+
+
+If trim(session("User_Name"))="" then
+	Response.Redirect ("Default.asp?message=sesexp")
+End if
+
+%>
+
+<html>
+<head>
+<title>View Analysts Data</title>
+<script language="JavaScript">
+function submitval(actval)
+{
+	var updateval;
+	updateval = confirm("Confirm, Do you want to send email.");
+	if (updateval==true)
+	{
+		window.frmsis.method="post";
+		window.frmsis.action="Frm_SIS_ViewSelectedSlots.asp";
+		window.frmsis.submit();
+	}	
+}
+function Validate(theForm)
+{
+  if (theForm.ID.value == "")
+  {
+    alert("Please Enter Candidate ID in the \"Candidate ID\" field.");
+    theForm.ID.focus();
+    return (false);
+  }
+
+return (true);
+}
+function OpenWin(num)
+	{ 
+		myWin = open("ApplicantInfo.asp?ID="+num+"#callID1" ,"userwin","width=780,top=5,left=5,height=550,status=no,toolbar=no,menubar=no,scrollbars=yes");
+	}
+function OpenWinInt(num)
+	{ 
+		myWin = open("Interviewinfo.asp?ID="+num+"" ,"userwin","width=880,top=320,left=200,height=630,status=no,toolbar=no,menubar=no,scrollbars=yes");
+	}
+function OpenWinInt1(num,sname)
+	{ 
+		myWin = open("Interviewinfo.asp?ID="+num+"&stname='"+sname +"'" ,"userwin","width=880,top=5,left=5,height=800,status=no,toolbar=no,menubar=no,scrollbars=yes");
+	}
+
+function OpenWin1(num)
+{
+		window.frmsis.method="post";
+		window.frmsis.action="RegistrationSlots.asp?rid="+num;
+		window.frmsis.submit();
+}
+</script>
+<link href="../globind.css" rel="stylesheet" type="text/css">
+</head>
+
+<body topmargin="0" leftmargin="0" bottommargin="0" rightmargin="0">
+<table width="100%" height="100%" align="center" border="0">			
+<tr><td colspan="2" valign="top"><!--#include file="ASPIncludes/TopStrip.asp"--></td></tr>
+<tr><td width="15%" height="100%" height="100%"  bgcolor="#73AEBD" valign="top"><!--#include file="ASPIncludes/sideStrip.asp"--></td>
+<td valign="top" align="center">
+<table border="0" width="75%" bordercolor="#005563" cellspacing="0" cellpadding="0"> 
+<tr><td height="10"></td></tr>
+</table> 
+ <%if trim(request("ttype"))="" then
+	ttype = "All"
+	ttype1 = ""
+  else
+    ttype = trim(request("ttype"))
+	ttype1 = trim(request("ttype"))
+  end if%>
+<table border="1" width="95%" bordercolor="#005563" cellspacing="0" cellpadding="0" style="border-collapse:collapse;"> 
+ <tr>
+    <td width="100%" bgcolor="#005563"><p align="center"><strong><big><font color="#FFFFFF">View Selected Slots [<%=ttype%>]</font></big></strong></td>
+  </tr>
+  <tr>
+    <td width="100%" bgcolor="#005563"><p align="center"><font color='red'>
+    <%if trim(request("message"))="2" then%>
+		Status Updated successfully
+    <%end if%>
+    </font></p></td>
+  </tr>
+  <form name="frmsis" method="post">
+  <tr>
+    <td width="100%"><div align="center"><center>
+    <table align="center" width="100%" border="1" bordercolor="black" cellpadding="2" cellspacing="2" bgcolor="#f0e5dd" style="border-collapse:collapse;">
+	
+          
+
+<tr>
+<td colspan="7">  <div align="center"><center><p><font color="#004080"><strong>Candidate Name/ID :</strong></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="text" name="ID" size="25">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Enter" name="Btn1"></p>
+          </center></div> </td>
+
+</tr>
+	<tr>
+		<td colspan="7">
+		<%	
+		''add data to database
+		  '' for paging
+		dim k,rec_per_page
+		rec_per_page=50
+		Dim Cp,rowcount,i
+			cp=Request.QueryString("Cp")
+			EforEdit=Request.QueryString("E")
+		if cp="" then
+			cp=1
+			EforEdit=cint(rec_per_page)
+		end if 
+		cpForEdit=cp
+		con.open "Provider="&drivertype&";data source="&servertype&";uid="&userid&";pwd="&pwd&";initial catalog="&trim(dbname)  			
+		Set rsDisp =Server.CreateObject("ADODB.Recordset")
+		rsDisp.ActiveConnection = con
+		rsDisp.CursorType = 3
+		rsDisp.PageSize = cint(rec_per_page)
+		if Request("ID") <> "" then
+		  if isnumeric(Request("ID")) then
+			'Response.write (request("id"))
+			whrcnd=" and b.rec_id=" & request("id") 
+			'Response.write (session("user_type"))
+		   else
+			''whrcnd=" and a.user_name like '%" & request("id") & "%'"
+			whrcnd=" and (a.user_name like '%" & request("id") & "%' or a.surname like '%" & request("id") & "%')"
+		   end if
+		end if
+		if trim(request("candname"))<>"" then
+		'        whrcnd1=" and b.rec_id=" & request("id") 
+
+		end if
+
+		if trim(session("user_type"))="1" then
+			if trim(request("candname"))<>"" then		
+				usql1="select *,dbo.ReturnSlotDetails(b.SelectedSlot) as SlotDetails,dbo.ReturnCountofHydSlots(b.SelectedSlot) as slotCount,dbo.ReturnAppearedHydDetails(a.Rec_id) as appeared from TBL_SIS_Applications a, Interview_Hyd_SelSlots b where b.Rec_ID=a.Rec_ID and (b.Date_Updated<>'' or b.Date_Updated is not null) and b.SelectedSlot<>'' and user_name like ('%"&trim(Request("id"))&"%') and user_status=11 order by b.SelectedSlot"
+			else
+				usql1="select *,dbo.ReturnSlotDetails(b.SelectedSlot) as SlotDetails,dbo.ReturnCountofHydSlots(b.SelectedSlot) as slotCount,dbo.ReturnAppearedHydDetails(a.Rec_id) as appeared from TBL_SIS_Applications a, Interview_Hyd_SelSlots b where b.Rec_ID=a.Rec_ID and (b.Date_Updated<>'' or b.Date_Updated is not null) and b.SelectedSlot<>'' and User_Status=11 and a.rec_id>=998 " & whrcnd & " order by b.SelectedSlot,a.rec_id"
+			end if
+		else
+			if trim(request("candname"))<>"" then
+				usql1="select *,dbo.ReturnSlotDetails(b.SelectedSlot) as SlotDetails,dbo.ReturnCountofHydSlots(b.SelectedSlot) as slotCount,dbo.ReturnAppearedHydDetails(a.Rec_id) as appeared from TBL_SIS_Applications a, Interview_Hyd_SelSlots b where b.Rec_ID=a.Rec_ID and (b.Date_Updated<>'' or b.Date_Updated is not null) and b.SelectedSlot<>'' and a.user_name like ('%"&trim(Request("id"))&"%') and user_status=11 order by b.SelectedSlot,a.rec_id"
+			else
+				usql1="select *,dbo.ReturnSlotDetails(b.SelectedSlot) as SlotDetails,dbo.ReturnCountofHydSlots(b.SelectedSlot) as slotCount,dbo.ReturnAppearedHydDetails(a.Rec_id) as appeared from TBL_SIS_Applications a, Interview_Hyd_SelSlots b where b.Rec_ID=a.Rec_ID and (b.Date_Updated<>'' or b.Date_Updated is not null) and b.SelectedSlot<>'' and User_Status=11 and a.rec_id>=998 " & whrcnd & " order by b.SelectedSlot,a.rec_id"
+			end if
+		end if
+		'response.write usql1
+		rsDisp.Open usql1
+		''paging
+		'rsDisp.movefirst
+		rowcount = 0
+		Start = 1
+		E = cint(rec_per_page)
+		i = rsDisp.RecordCount
+		p = i
+		if i>cint(rec_per_page) then
+			Response.Write ("<table width='100%' style='border-collapse:collapse'><tr bgcolor='white'><td><font face=verdana size=2 color=""blue""><b>Pages:")
+			for i=1 to rsDisp.PageCount%>			
+				<a href="RegistrationSlots.asp?Start=<%=Start%>&amp;E=<%=E%>&amp;Cp=<%=i%>&candname=<%=trim(request("candname"))%>&rid=&ttype=<%=ttype1%>"><%=i%></a>			
+				<% start = start+cint(rec_per_page)
+				E = E+cint(rec_per_page)
+			next  
+		   	if cp >= 1 then
+				Response.Write ("</td><td  align=right width='30%'><font size='2' face=verdana color=""blue""><b>Page :&nbsp;<b>"&Cp&"") 
+			end if  
+				Response.Write ("</td></tr></table>")
+		end if 	
+		if cp > 1 then		 	 
+			 rsDisp.AbsolutePosition = Request.QueryString("Start")
+		END IF 
+		Response.Write ("<tr>")
+			'Response.Write ("<th><font face=""verdana"" size=""2"">Option</font></th>")
+			Response.Write ("<th><font face=""verdana"" size=""2"">Sl. No</font></th>")
+			Response.Write ("<th><font face=""verdana"" size=""2"">User Name</font></th>")
+			'Response.Write ("<th><font face=""verdana"" size=""2"">Email ID</font></th>")
+			'Response.Write ("<th><font face=""verdana"" size=""2"">Phone</font></th>")
+			'Response.Write ("<th><font face=""verdana"" size=""2"">Date Selected</font></th>")
+			Response.Write ("<th><font face=""verdana"" size=""2"">Slots</font></th>")
+			Response.Write ("<th><font face=""verdana"" size=""2"">RESUME & PHOTOGRAPH</font></th>")
+			Response.Write ("<th><font face=""verdana"" size=""2"">Interview</font></th>")
+		Response.Write ("</tr>")
+		IF not rsDisp.EOF THEN
+			j=1
+			no = trim(Request.QueryString("Start"))
+			if no = "" then
+				no = 1
+			else
+				no = no
+			end if
+			startEdit=no
+			while not rsDisp.EOF and rowcount<rsDisp.PageSize
+				dim UsrStat
+				if trim(rsDisp("User_Status"))="1" then
+					UsrStat = "<font color='black'>Pending</font>"
+				elseif trim(rsDisp("User_Status"))="2" then
+					UsrStat = "<font color='green'>Approved</font>"
+				elseif trim(rsDisp("User_Status"))="3" then
+					UsrStat = "<font color='red'>Declined</font>"
+				elseif trim(rsDisp("User_Status"))="5" then
+					UsrStat = "<font color='blue'>Hold</font>"
+				end if
+				Response.Write ("<tr bgcolor='white'>")
+					'if trim(ucase(rsDisp("mail_sent")))="Y" then
+					'	Response.Write ("<td align='center'>-Sent-</td>")
+					'else
+					'	Response.Write ("<td align='center'><input type=""checkbox"" checked name=""chk"&rsDisp("Rec_id")&"""></td>")
+					'end if
+					Response.Write ("<td align='center'><a href='javascript:OpenWin("& rsDisp("Rec_id") &");'><font face='verdana' size='2'>"& no &"</font></a></td>")
+					Response.Write ("<td align='left'><font face='verdana' size='2'>" &  rsDisp("SurName") & " " & rsDisp("User_Name") &"("& rsDisp("Rec_id") &")</font></td>")
+					'Response.Write ("<td align='left'><font face='verdana' size='2'>"& rsDisp("User_Email") &"</font></td>")
+					'Response.Write ("<td align='left'><font face='verdana' size='2'>"& rsDisp("User_Phone") &"</font></td>")
+					'Response.Write ("<td align='center'><font face='verdana' size='2'>"& rsDisp("Date_Updated") &"</font></td>")
+					Response.Write ("<td align='left'><font face='verdana' size='2' ><b>"& rsDisp("SlotDetails") &"<b></font></td>")
+					Response.Write ("<td align='left'><font face='verdana' size='2' ><b><input type='radio' name='OptResPho" & rsDisp("Rec_id") & "' value='Only Resume'" &  fnchecked(trim(rsDisp("appeared")),"Only Resume") & " >Only Resume&nbsp;&nbsp;<input type='radio' name='OptResPho" & rsDisp("Rec_id") & "' value='Only Photos' " & fnchecked(trim(rsDisp("appeared")),"Only Photos")& " >Only Photos&nbsp;&nbsp;<input type='radio' name='OptResPho" & rsDisp("Rec_id") & "' value='Both' " & fnchecked(trim(rsDisp("appeared")),"Both") & " >Both&nbsp;&nbsp;"  &"<b></font></td>")
+					if trim(ucase(rsDisp("appeared")))<> "" then
+						Response.Write ("<td align='center'><font size=2 color=green face=verdana>Appeared</font></td>")
+					else
+						Response.Write ("<td align='center'><a href='javascript:OpenWin1("& rsDisp("Rec_id") &");'><font face='verdana' size='2'>Appeared</font></a></td>")
+					end if
+				Response.Write ("</tr>")
+				j=j+1
+				no=no+1
+				rowcount=rowcount+1
+			rsDisp.MoveNext
+			wend
+		else
+			Response.Write ("<tr bgcolor='white'>")
+					Response.Write ("<td colspan=7 align=center><font face='verdana' size='2' color='red'>-- No Records Found --</font></td>")					
+			Response.Write ("</tr>")
+		End if
+		set rsDisp=nothing
+		con.close()
+		Response.Write ("<tr bgcolor='white'>")
+				'Response.Write ("<td colspan=7 align=left><input type=""submit"" name=""butnvalue"" value=""Send mail"" onclick=""javascript:submitval('Accept')""></td>")					
+		Response.Write ("</tr>")
+		%>
+	</table>
+    </center></div></td>
+  </tr>
+  </form>
+</table><br>
+</td></tr>
+<tr><td colspan="2">
+<!--#include file="ASPIncludes/BottomStrip.asp"-->
+</td></tr>
+</table>
+</center></div>
+</body>
+</html>

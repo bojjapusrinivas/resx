@@ -1,0 +1,742 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body{
+	
+	font-size:13px;	
+	
+}
+
+.navbar-nav li a:hover, .nav-justified li a:hover{
+	
+	color:#FFF !important;	
+	background-image: linear-gradient(to bottom, #5F0405 0%,#B70101 100%) !important;
+}
+
+
+
+.navbar-nav{
+	
+	margin:0px;
+	padding:0px;
+}
+
+.navbar-nav li{
+	
+	margin:0px !important;
+	padding:0px !important;
+}
+
+.navbar-nav li a{
+	
+	padding:5px 10px;;
+
+}
+
+.nav-justified li {
+	padding:0px 2px;
+	
+}
+
+
+.nav-justified li a{
+	
+padding:10px 1px !important;
+	
+font-size: 12px;
+	
+font-weight:bold;
+}
+
+
+
+
+/*====================
+	BACKGROUND COLOR
+=====================*/
+
+.bg_white{
+	
+	background:#FFF;	
+	
+}
+
+.bg_lightgray{
+	
+	background:#F5F5F5	
+}
+
+.space_XL{
+	
+	height:30px;	
+	
+}
+
+.fixed_box_middem{
+	
+	height:550px;
+	overflow:scroll;
+	overflow-y:scroll;
+	overflow:-x:none;
+	
+}
+
+/*====================
+		TEXT COLOR
+=====================*/
+
+.text_red{
+	
+	color:#F00 !important;
+	
+}
+
+.text_white{
+	color:#FFF;	
+	
+}
+
+.text_yellow{
+	color:#EC3B41;
+	font-size:12px !important;
+	padding-top:30px;
+	
+}
+
+.text_blue{
+	
+	color:#0c3a92;
+}
+
+/*=====================
+		BORDER
+=======================*/
+
+.thin_boreder{
+		border:#CCCCCC solid 1px;
+}
+
+
+/*====================
+	HEADER STYLES
+=====================*/
+
+.logo{
+	
+	width:150px;
+	height:62px;
+	display:block;
+	margin:0 auto;
+	margin-top:20px;
+	
+}
+
+.years{
+	width:125px;
+	height:125px;
+	display:none;
+	float:none;
+	margin: 0 auto;
+}
+
+.title{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 26px !important;
+	margin:25px 0px 0px 0px;
+	padding:0px;
+	text-align:left;
+}
+
+.sub_title{
+		
+	color:#0c3a92;
+	font-size:13.5px !important;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	margin:0px 0px 0px 5px;;
+	padding:0px;
+	text-align:left
+}
+
+
+	.top_nav{
+		
+		display:none;
+		float:right;
+	}
+	
+.head_left{
+	
+	display:block;	
+}
+
+.vis_name_pan{
+	
+	margin:0px !important
+}
+
+.header.row{
+	
+margin-bottom:0px !important;
+padding:0px; !important
+}
+
+
+/*=========================
+		BANNER
+=========================*/
+
+.banner_bg{
+
+	background:url(../img/banner_BG.png) no-repeat;
+	background-size:cover;
+	padding:0px;
+	padding:20px 0px;
+	
+}
+
+
+.quote{
+	
+	color:#FFF;
+	text-align:justify;
+	padding:2px 15px;
+	font-size:13px;
+	line-height:17px;
+	
+	
+}
+
+
+
+
+
+.quote_speaker{
+	
+	color:#FFF;
+	text-align:right;
+	font-weight:bold;
+	font-style:italic;
+	font-size:13px;
+	padding:0px 15px;
+	
+}
+
+
+/*============================
+	slide share
+=============================*/
+
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+}
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+
+
+
+#basicCube { 
+width: 152px; 
+height: 152px; 
+}
+
+
+
+/*===========================
+		BODY CONTENT
+============================*/
+
+.out_line{
+
+	float:none;
+	margin:0 auto;
+	
+	
+}
+
+
+.highlight_box{
+	
+	height:290px;;
+	overflow:hidden;
+}
+/*------------ top_company --------*/
+
+
+.top_company_list{ 
+	list-style:none;
+	margin:15px;
+	padding:0px;
+}
+
+.top_company_list_inner{ 
+	list-style:none;
+	margin:0px;
+	padding:0px;
+}
+
+
+
+.top_company_list li a, .top_company_list_inner li a{
+	
+	margin:3px 0px;
+	display:block;
+	color:#000;
+	padding:4px;
+	text-decoration:none;
+}
+
+.top_company_list li a.alter, .top_company_list_inner  li a.alter{
+	
+	background:#d3e2f4 !important	
+}
+
+.top_company_list li a, .top_company_list_inner li a{
+	
+	background:#ffcccc;	
+}
+
+.top_company_list li a:hover, .top_company_list_inner li a:hover{
+	
+	background:#dfdfdf;	
+}
+
+
+
+.video_block{
+	
+	width:auto;
+	height:252px;
+	margin:15px;
+}
+
+.video_list li a{
+	
+	padding:15px !important;
+	
+}
+
+
+.sponsors_title{
+	
+	display:block;
+	margin:0px;
+	padding:10px;
+	color:#FFF;
+	background:#0066FF;
+	
+}
+
+#owl-demo .item{
+  margin: 3px;
+}
+
+#owl-demo .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+/*===========================
+		Footer
+===========================*/
+
+.footer_link li a{
+	
+		color:#fff;
+		margin-left:30px;
+	
+}
+
+
+/*========================
+			other
+=========================*/
+
+.swape{
+	position:absolute;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,0.1);
+	display:none;
+	
+}
+
+.swaperemove{
+	display:none !important
+}
+
+
+.swape .swap_icon{
+		width:50px;
+		height:50px;
+		display:block;
+		margin:0 auto;
+		margin-top:50px;
+			
+}
+
+.prof {
+background:url(../img/pic.jpg) no-repeat;
+background-size:100px 100px;
+
+}
+
+/*=============================
+
+	speaker curation page
+
+=============================*/
+
+
+
+table.speaker_pg  tr  td  img {
+	width:100px;
+	height:100px;
+	border:#000 solid 1px;	
+	opacity:0.8;
+	margin-top:-15px !important;
+
+	
+}
+
+table.speaker_pg  tr  td  img:hover{
+	opacity:1;	
+}
+
+.mscroll_pan{
+	
+	height:auto;	
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+
+
+.modal-body *, .modal-body{ 
+	margin:5px 0px !important;
+	padding:0px 3px !important;
+}
+
+.modal-body p{
+	margin:0px !important;
+	padding:0px !important;
+	
+}
+
+.modal-body hr{
+	border-bottom:#fdfff8 thin 1px;
+	width:100%;
+}
+
+.desktop_view{
+	
+	display:display;	
+}
+
+
+.mode_mobile{
+		display:none;
+}
+	
+	
+.img_cell{
+	width:125px;
+
+}
+
+
+
+@media (min-width:768px){
+
+	.footer_link li a{
+		
+			text-align:left;
+		
+	}
+	
+	
+	.title{
+		font-size:26px;
+		padding-left:20px;
+		text-align:left;
+	}
+	
+	.sub_title{
+		
+		font-size:10px;
+		padding-left:20px;
+		text-align:left;
+	
+	}
+	
+	
+	
+
+}
+
+@media (max-width:750px){
+	
+	.title{
+		font-size:40px;
+		text-align:center!important;
+	}
+	
+	.sub_title{
+		font-size:15px;
+		text-align:center!important;
+	}
+	
+	
+	.mscroll_pan{
+	
+	height:100px;	
+	overflow-y:scroll;
+	overflow-x: hidden;
+	
+}
+
+/*============================
+	  speakers page
+	
+	============================*/
+	
+.number_cell{
+	display:none;
+}
+
+
+
+.vis_name_pan{
+	
+	text-align:left !important	;
+	padding-top:175px !important
+}
+	
+	
+	
+.wrap_table tbody tr td{
+		width:25%;
+		display:list-item;
+		list-style:none;
+		float:left;
+		text-align:center
+	
+}
+.wrap_table tbody tr td:first-child{
+	width:100%; 
+	border-bottom:#000 solid 1px;
+}
+	
+table.speaker_pg  tr  td:second-child{
+	width:75px;
+	height:auto;	
+}
+	
+	
+table.speaker_pg  tr  td  img {
+	width:75px;
+	height:75px;
+	border:#000 solid 1px;
+	border-radius:100%;	
+	
+}
+
+
+.desktop_view{
+	
+	display:none;	
+}
+
+
+.mode_mobile{
+		display:block;
+}
+
+	
+}
+
+
+
+
+
+@media (max-width:480px){
+	
+	.title{
+		font-size:30px;
+		display:block !important;
+		margin:0 auto;
+	}
+	
+	.sub_title{
+		font-size:12px;
+		display:block !important;
+		margin:0 auto;
+	}
+	
+	.swape{
+	position:absolute;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,0.1);
+	display:block;
+	
+}
+
+	
+	.years{
+	width:125px;
+	height:auto;;
+	display:block;
+	float:none;
+	margin: 0 auto;
+	
+}
+
+	
+	.head_left{
+		
+		position: relative;
+		left:0px;
+		top:0px;
+		z-index:1;
+		display:none;
+		margin-bottom:10px;
+		background:rgba(0,0,0,0.03);
+	}
+	
+	
+	.icon_box{
+		
+		padding:20px;
+		
+	}
+	
+	
+	.icon_box a{
+		
+		padding:10px;
+		
+		
+	}
+	
+	.list_dropbox{
+		
+		
+		padding:15px;
+		text-align:center;
+		
+	}
+	
+	
+	.top_nav{
+		
+		display:block;
+		float:right;
+		z-index:3;
+		position:absolute;
+		right:15px;
+		top:0px;
+	}
+	
+	.video_block{
+		
+		width:260px;
+		height:350px;;
+		
+		
+	}
+	
+	.footer_link li a{
+		
+			text-align:center;
+		
+	}
+	
+	/*============================
+	  speakers page
+	
+	============================*/
+	
+table.speaker_pg  tbody tr  td:first-child, table.speaker_pg thead tr  th:first-child{
+	display:none;
+}
+
+table.speaker_pg  tr  td  img {
+	width:80px;
+	height:80px;
+	border:#000 solid 1px;
+	border-radius:100%;
+	vertical-align:top;
+
+	
+}
+
+table.speaker_pg  tr  td:first-child{
+	width:50px; !important
+	height:auto;	
+}
+
+
+.vis_name_pan{
+	
+	text-align:left !important	;
+	padding-top:200px !important
+}
+
+
+.mscroll_pan{
+	
+	height:100px;	
+	overflow-y:scroll;
+	overflow-x: hidden;
+	
+}
+
+.img_cell{
+	
+	width:100px !important;
+		
+}
+
+
+.wrap_table tbody tr td{
+		width:50%;
+		display:list-item;
+		list-style:none;
+		float:left;
+		text-align:center
+	
+}
+.wrap_table tbody tr td:first-child{
+	width:100%; 
+	border-bottom:#000 solid 1px;
+}
+	
+
+
+	
+	
+	
+}
+

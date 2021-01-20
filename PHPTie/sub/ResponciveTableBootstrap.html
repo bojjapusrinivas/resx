@@ -1,0 +1,44 @@
+  
+<!--<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+<!--<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>-->
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+<script src="jquery.dataTables.min.js"></script>
+<!--<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
+<div class="container" style="margin:20px auto">
+<?PHP
+//Include database connection details
+	require_once('Includes/connection.php');
+$result = mysqli_query($conn,"SELECT Executive_Full_Name as ExecutiveName,Title,Company_Name,Country FROM curationdata");
+$all_property = array();  //declare an array for saving property
+
+//showing property
+echo '<table id="myTable" class="table table-striped">
+        <thead><tr>';  //initialize table tag
+while ($property = mysqli_fetch_field($result)) {
+    echo '<th>' . $property->name . '</th>';  //get field name for header
+    array_push($all_property, $property->name);  //save those to array
+}
+echo '</tr></thead> <tbody>'; //end tr tag
+
+//showing all data
+while ($row = mysqli_fetch_array($result)) {
+    echo "<tr>";
+    foreach ($all_property as $item) {
+        echo '<td>' . $row[$item] . '</td>'; //get items using property value
+    }
+    echo '</tr>';
+}
+echo " </tbody></table>";
+
+
+?>
+
+	  </div>
+ 
+<script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
+ 

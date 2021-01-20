@@ -1,0 +1,93 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!--
+<link rel="stylesheet" type="text/css" href="ddlevelsmenu-base.css" />
+<link rel="stylesheet" type="text/css" href="ddlevelsmenu-topbar.css" />
+<link rel="stylesheet" type="text/css" href="ddlevelsmenu-sidebar.css" />
+
+<script type="text/javascript" src="ddlevelsmenu.js">
+
+/***********************************************
+* All Levels Navigational Menu- (c) Dynamic Drive DHTML code library (http://www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>-->
+
+</head>
+<body>
+<div id="ddsidemenubar" class="markermenu">
+<ul>
+<li><a href="Default.asp">Home</a></li>
+<li><a href="aboutus.asp" rel="ddsubmenuside3">About Us</a></li>
+<li><a href="services.asp" rel="ddsubmenuside1">Services</a></li>
+<li><a href="careers.asp" rel="ddsubmenuside2" >Careers</a></li>
+<li><a href="thecybercity.asp" rel="ddsubmenuside4" >Hyderabad</a></li>
+<!--li><a href="NewDelhi.asp" rel="ddsubmenuside5" >New Delhi</a></li-->
+<!--li><a href="http://www.sisinfotech.com/workez/default.htm" >Work From Home</a></li-->
+<li><a href="Training.asp" >Training</a></li>
+<li><a href="contactus.asp" >Contact Us</a></li>
+</ul>
+</div>
+
+<script type="text/javascript">
+ddlevelsmenu.setup("ddsidemenubar", "sidebar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
+</script>
+
+
+
+<ul id="ddsubmenuside1" class="ddsubmenustyle blackwhite">
+	<!--li><a href="#">Industry Brief</a></li-->
+	<li><a href="services.asp#cq">Creating Quality Content</a></li>
+	<li><a href="services.asp#hc">Helping Companies </a></li>
+	<li><a href="services.asp#oa">Our Approach </a></li>
+	<li><a href="services.asp#cm">Content Management </a></li>
+	<li><a href="services.asp#ae">Analysis & Editorial </a></li>
+	
+</ul>
+
+<ul id="ddsubmenuside2" class="ddsubmenustyle blackwhite">
+	<!--li><a href="#">Industry Brief</a></li-->
+	<li><a href="careers.asp#ch">Careers @Hyderabad </a></li>
+	<!--li><a href="careersGur.asp#cg">Careers @New Delhi </a></li-->
+	<!--li><a href="enet">Work from Home</a></li-->    
+	<!--li><a href="careers/Frm_SIS_ApplicationWfHome.asp">Work from Home</a></li-->
+</ul>
+
+<ul id="ddsubmenuside4" class="ddsubmenustyle blackwhite">	
+	<li><a href="thecybercity.asp">The Cyber City </a></li>
+	<li><a href="LocationMap.asp">Location Map </a></li>
+	<li><a href="Accommodation.asp">Accommodation</a></li>
+	<li><a href="Faqs.asp">FAQs</a></li>	
+</ul>
+
+<ul id="ddsubmenuside3" class="ddsubmenustyle blackwhite">
+	<!--li><a href="#">Industry Brief</a></li-->
+	<li><a href="aboutus.asp#pi">Power to Innovate and Lead</a></li>
+	<li><a href="aboutus.asp#om">Our Mission</a></li>
+	<li><a href="aboutus.asp#ot">Our Editorial Excellence</a></li>
+	<li><a href="aboutus.asp#op">Our People </a></li>
+</ul>
+
+<ul id="ddsubmenuside5" class="ddsubmenustyle blackwhite">	
+	<li><a href="NewDelhi.asp">New Delhi </a></li>
+	<li><a href="LocationMap_ND.asp">Location Map </a></li>
+	<li><a href="FaqsND.asp">FAQs</a></li>
+		
+</ul>
+
+<b>Note</b> :  Site best viewed with Internet Explorer
+<!--HTML for the Drop Down Menus associated with Side Menu Bar-->
+<!--They should be inserted OUTSIDE any element other than the BODY tag itself-->
+<!--A good location would be the end of the page (right above "</BODY>")-->
+
+
+<!--Side Drop Down Menu 1 HTML-->
+
+
+</body>
+</html>
+
+

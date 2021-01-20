@@ -1,0 +1,144 @@
+https://www.microsoft.com/en-us/download/details.aspx?id=54920
+
+public void package_eBook(string Excel_file_Name)
+		{
+            Microsoft.Office.Interop.Excel.Application myObj;    
+			//Excel.Application myObj;
+			try
+			{
+                myObj = new Microsoft.Office.Interop.Excel.ApplicationClass();
+
+				/*fs = new FileStream("C:\\BookPackageError.txt", System.IO.FileMode.OpenOrCreate); 
+				sw = new StreamWriter(fs);*/
+            //===========================================
+
+            //===========================================
+
+				if(myObj==null)
+				{
+					Console.WriteLine("Excel could not be loaded"); 
+					Console.ReadLine();  
+				}
+				else
+				{
+
+                   
+					Console.WriteLine("Excel loaded"); 
+					//opening the Excel file to read the data
+                    
+                    string file_prefix = @"D:\ACS4\";
+					Excel_file_Name=file_prefix + Excel_file_Name + ".xls";
+                    Microsoft.Office.Interop.Excel.Workbook myworkbook = myObj.Workbooks.Open(Excel_file_Name, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true,null,null);
+                    Microsoft.Office.Interop.Excel.Worksheet mysheet = (Microsoft.Office.Interop.Excel.Worksheet)myworkbook.Sheets[1];
+					int Excel_No_Rows;
+					Excel_No_Rows=mysheet.UsedRange.Rows.Count;
+					Console.WriteLine(Excel_No_Rows);
+		
+					//Retriving the data from the Excel file
+					for(int i=2;i<=Excel_No_Rows;i++)  
+					{
+                        Microsoft.Office.Interop.Excel.Range dataField = 
+							mysheet.get_Range("A"+ i.ToString(),Type.Missing);
+					
+						//for Book_ID
+                        BookNo = (dataField.Value2).ToString();
+						Book_ID=(dataField.Value2).ToString();
+						Console.WriteLine(Book_ID); 
+						//Console.ReadLine();
+						Book_ID="DOI:" + Book_ID;				
+
+						dataField = 
+							mysheet.get_Range("B" + i.ToString(),Type.Missing);
+
+						//for Book_title
+						Book_title=(dataField.Value2).ToString(); 
+						Console.WriteLine(Book_title);
+
+						dataField = 
+							mysheet.get_Range("C" + i.ToString(),Type.Missing);
+
+						//for Book_text
+						Book_text=(dataField.Value2).ToString();
+						Console.WriteLine(Book_text);
+
+
+						dataField = 
+							mysheet.get_Range("D" + i.ToString(),Type.Missing);
+
+						//for Book_Path
+						Book_Path=(dataField.Value2).ToString();
+						Console.WriteLine(Book_Path); 
+
+						dataField = 
+						mysheet.get_Range("F" + i.ToString(),Type.Missing);
+
+						//for Pagecount
+						Pagecount=System.Convert.ToInt32((dataField.Value2).ToString());
+						Pagecount = Pagecount*1;
+						Console.WriteLine(Pagecount);
+
+                        dataField =
+                            mysheet.get_Range("G" + i.ToString(), Type.Missing);
+
+                        //for Status
+                        Status = (dataField.Value2).ToString();
+						Console.WriteLine(Status); 
+
+
+                        dataField =
+                            mysheet.get_Range("H" + i.ToString(), Type.Missing);
+
+                        //for Resource_ID
+                        if (dataField.Value2.ToString() != "")
+                        {
+                            Resource_ID = (dataField.Value2).ToString();
+                            Console.WriteLine(Resource_ID);
+                        }
+                        
+                        //string pagcnt;
+                        //pagcnt = "\"" + Pagecount.ToString() +"\"";
+                        //string str = "\"Test\"";
+                    
+						//Loading the XML document for modifying it
+						// CreateXMLDoc();
+                        createTextDoc();
+
+                        
+						//process to run batch file to import and package the eBooks
+                        //System.Diagnostics.Process p=new System.Diagnostics.Process();
+                        //p.StartInfo.UseShellExecute=false;
+                        //p.StartInfo.Arguments = "D:\\ACS4rose.bat";
+                        //System.Diagnostics.Process.Start("D:\\ACS4rose.bat"); 
+
+						//Makes the process to wait to package the eBook
+						//Thread.Sleep(10000); 
+						//Thread.Sleep(10000); 
+					}
+                    // After creating all xml files multipuld file packaging batch should run
+                    myObj.Workbooks.Close();
+                    myObj.Quit();
+                     
+                    Thread.Sleep(5000);
+                    //process to run batch file to import and package the eBooks
+                    //////////System.Diagnostics.Process p = new System.Diagnostics.Process();
+                    //////////p.StartInfo.UseShellExecute = false;
+                    //////////p.StartInfo.Arguments = @"C:\\ACS4\ACS4rose.bat";
+                    //////////System.Diagnostics.Process.Start(@"C:\\ACS4\ACS4rose.bat"); 
+					mysheet=null;
+					myObj = null;
+					Console.WriteLine("Excel Document closed"); 
+					Console.ReadLine();
+                    
+                   
+				}
+		
+			}
+			catch (Exception ex )
+			{
+				EventLog Ev; 
+				Ev = new EventLog(); 
+				Ev.WriteEntry(ex.ToString());  
+				Console.WriteLine(ex.Message);
+				Console.ReadLine();
+			}
+		}

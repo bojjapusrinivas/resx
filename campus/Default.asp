@@ -1,0 +1,1 @@
+<%response.redirect("http://www.bizacumen.com/campus/Frm_Application.asp?pid=1")%>

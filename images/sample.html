@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style>
+@charset "utf-8";
+/* CSS Document */
+
+/*-----Reset style----*/
+*{margin:0px; padding:0px}
+
+/*------Common Styles------*/
+body{ background:#FFF url(Images/background_image.png) repeat-x}
+h2{font-family:Verdana, Geneva, sans-serif; font-size:11pt; color:black}
+h5{font-family:Verdana, Geneva, sans-serif; font-size:11px; color:black}
+a{text-decoration:none}
+li{list-style:none}
+li.arrow{list-style: url(Images/arrow.png)}
+a, p{font-family:Verdana, Geneva, sans-serif; font-size:7pt; color:black; font-weight:100}
+a.underline{ text-decoration:underline}
+.space{height:15px; clear:both}
+span{color:#CC2721}
+
+.second_box ul >.arrow{ list-style:url(Images/arrow_black.png)}
+
+.border-box, .yellow, .second_box, .member_login, .add_box01, #out_border, .about_infobox, #contact_form{border:#e4e1e1 solid 1px}
+/*----Layout styles-----*/
+
+
+#outer_wapper,#wapper, top_menupan, #title_searchpan, #content_pan, #bottom_adpan, #footer_pan, #footer_area, #index_content, #option_area{position:relative}
+
+#outer_wapper{width:783px;margin:0 auto; padding:0px;}
+#wapper{width:783px;background-color:#FFF; margin-bottom:15px}
+#top_menupan{ height:20px; background-color:#efefef}
+#title_searchpan{height:52px}
+#content_pan{min-height:autopx; margin-bottom:14px}
+	#index_content,#Cat_content, #Cater_content, #about_content,services_content {height:auto}
+	#Cat_content{min-height:auto}
+
+	#content_left{width:540px; float:left; background:url(Images/contnet_leftbg.png) repeat-x; padding-top:3px} 
+	#content_right{width:236px; float:right}
+
+#bottom_adpan{width:735px; height:49px; margin:0 auto}
+#footer_pan{width:auto;  background:#333 url(Images/footer_image.png) repeat-x; z-index:-1;}
+#footer_area{width:783px; height:120px; background:#333 url(Images/footer_image.png) repeat-x; margin:0 auto}
+
+/*-------------style-----------*/
+	/*------menu style------*/
+	.menu_list{margin:0px; padding:0px; height:20px}
+	.menu_list li{display:inline; float:left}
+	.menu_list li a{display:block;  padding:5px 15px }
+	.menu_list li a:hover{color:white; background-color:#98be1e}
+	/*------logo area ----*/
+	.logo_img{position:absolute; top:11px; left:25px}
+	.search_box{position:absolute; right:25px; width:302px;top:20px}
+	.serch_icon{float:right}
+	/*----slide_show style----*/
+	.slide_show{height:190px}
+	/*----cont left-box-----*/
+	#leftcont_box01{height:160px; margin-top:5px; position:relative}
+	.yellow{background:url(Images/leftcontg_box_bg.png) repeat-x;}
+	.offer_icon{position:absolute; right:10px; top:-25px}
+	#leftcont_box01 ul{margin:5px 0px 0px 22px; padding:5px 0px; float:left}
+	#leftcont_box01 ul li.arrow{ margin:0; padding:0px; width:110px; height:25px; letter-spacing:-1px}
+	#leftcont_box01 ul li.sub_title{font-size:12px; text-decoration:underline; font-weight:bold; margin:10px 0px 0px 0px; height:20px}
+	#leftcont_box01 ul li.arrow  a:hover{ text-decoration:underline}
+	
+	/*-----cont right_box---*/
+	.member_login{height:auto}
+	.mem_text{width:90%; padding:2px 0px; margin:0 auto}
+	.mem_text02{width:90%; padding:0px ; float:right; margin:0px}
+	.green_line{border-bottom:#090 solid 2px; width:90%; margin:0 auto; height:1px; margin-bottom:10px}
+	.button{width:60px; height:20px; background-color:#eec43e; border:#F90 solid 1px; cursor:pointer}
+	.new_reg{height:17px; width:100%; clear:both; text-align:center; line-height:15px; background:url(Images/mem_bg.png) repeat-x;}
+	
+	/*-----footer-----*/
+	#footer_pan{margin:0px; padding:0px}
+	#footer_area .footer_menu{ border-left:#000 solid 2px; float:left; margin:0px; display:block; width:auto }
+	#footer_area .footer_menu li{padding:2px 8px; display:block; width:auto }
+	#footer_area .footer_menu li a{color:#CCC}
+	#footer_area .footer_menu li a:hover{text-decoration:underline}
+	.design_title{float:right; display:block; width:200px; color:#CCC; text-align:right}
+	
+	/*------categories styles----*/
+	#out_border{ margin:5px; border:#CCCCCC solid 1px; border-radius:10px; height:300px; padding:0px 2px }
+	.cat_block {padding:0px; margin:0px 5px 0px 5px}
+	.cat_block li{ float:left; width:160px; display:block; padding:0px; margin:5px}
+	.cat_img{width:25px; height:25px; border:#999999 solid 1px; float:left; margin:0px}
+	.cat_block li > a, .catering_block a{ background-color:#eeeeee; width:130px; height:25px; font-weight:bold; display:block; float:right; margin:0px ; line-height:25px; font-size:7pt}
+	.cat_block li > a:hover{text-decoration:underline}
+	/*-----catering styles-----*/
+	
+	.catering_block {padding:0px; margin:0px 5px 0px 5px; width:168px; float:left}
+	.catering_block li{ width:168px; display:block; padding:5px; margin:0; float:left; background-color:#8ac615; border-bottom:#CCCCCC solid 1px  }
+	.catering_block li > a{background-color:#8ac615}
+	.title_box{background:url(Images/title_02.png) repeat-x;  border-radius:5px 5px 0px 0px;}
+	.title_box02{background:url(Images/title_02.png) repeat-x;  border-radius:0px 0px 5px 5px}
+	.catering_title{font-size:12px; font-style:italic; margin:0px 2px}
+	#option_area{float:right; width:335px; min-height:600px}
+	.space02{height:40px; background-color:#329edf; border-top:#FFFFFF solid 1px}
+	.option_img{position:absolute; left:5px; top:-5px}
+	.option_infobox{height:auto; padding:0px}
+	.comp_title{background:url(Images/Gray_bg.png) repeat-x; padding:4px 0px; margin:2px 0px}
+	.ser_details{background-color:#d52b24; color:#FFFFFF; padding:6px; font-size:6.8pt; display:block}
+	.add_details{ padding:8px; border:#CCCCCC solid 1px; background:url(Images/globe.png) no-repeat; background-position:0px 5px; margin:1px 0px 1px 0px; font-size:6.8pt }
+	.ph_details{ padding:8px; border:#CCCCCC solid 1px; background:url(Images/ph_icon.png) no-repeat; background-position:0px 5px; color:#993300; margin:1px 0px 1px 0px}
+	.mail_details{ padding:8px; border:#CCCCCC solid 1px; background:url(Images/mail_icon.png) no-repeat; background-position:0px 5px; color:#6d870b; margin:1px 0px 1px 0px}
+	.web_details{ padding:8px; border:#CCCCCC solid 1px; background:url(Images/web_icon.png) no-repeat; background-position:0px 5px; color:#003b89; margin:1px 0px 1px 0px}
+	
+	/*------About styles---- */
+	.about_text, .service_text{font-size:9pt; text-align:justify; display:block; margin:5px}
+	.about_lists{ padding-left:25px}
+	.about_lists li{width:100%;list-style:url(Images/squre_box.png); padding:2px}
+/*----contact form-----*/
+
+.form{padding:0px 10px; height:auto; clear:both}
+.form_textfiled{float:right; width:200px; margin:0px; padding:0px}
+.form_textfiled01{height:60px; float:right; width:200px; margin:0px; padding:0px}
+.form_text{display:block; float:left; width:auto; font-size:10pt; font-family:Verdana, Geneva, sans-serif; font-weight:100}
+
+ .button1{ width:75px; height:25px; margin:0 auto; border:#AA6608 solid 1.2pt; background-color:#EF971C; box-shadow:inset 0px 2px 2px #f7899d, inset 0px -3px 2px #f66679; box-shadow:0px 0px 1px rgba(0, 0, 0, 0.4); font-size:16px; color:#FFF;Transition:all 1s easein 1.2s; -webkit-Transition:all 1s linear 1.2s; -moz-Transition:all 1s linear 1.2s; margin:10px 35px }
+
+.button1:hover{ box-shadow:inset 0px 30px 30px #F9B048, inset 0px -3px 2px #F9B048;border-radius:15px 0px 15px 0px }
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="about_infobox">
+			<h5 class="ser_details"> &nbsp; &nbsp;Coupons have these great benefits</h5>
+             <div class="space"></div>
+            <ul class="about_lists" >
+             <li> <h5 >Measure your coupon results by counting the number redeemed</h5></li>
+             <li> <h5 >Tap into new markets with a unique coupon offer</h5></li>
+             <li> <h5 >Use coupons to increase trials of new products and services</h5></li>
+             <li> <h5 >Stand out from competitors by offering an incentive to shop with you</h5></li>
+           
+             </ul>
+            <div class="space"></div>
+            
+			</div>
+            
+            <div class="space"></div>
+			
+			<div class="about_infobox">
+			<h5 class="ser_details" style="background-color:#F35500"> &nbsp; &nbsp;Benefits of The Local Online Display Service</h5>
+             <div class="space"></div>
+             
+             <ul class="about_lists" >
+             <li> <h5 >Complete campaign set-up</h5></li>
+             <li> <h5 >In-house designers create your online advertisements</h5></li>
+             <li> <h5 >Ongoing campaign monitoring (to insure optimal range of clicks & impressions)</h5></li>
+             
+             </ul>
+                 
+            <div class="space"></div>
+            
+			</div>
+            <div class="space"></div>
+            
+            <div class="about_infobox">
+			<h5 class="ser_details" style="background-color:#59A200"> &nbsp; &nbsp;Benefits of Advertisement in PROFIT PLUS</h5>
+            <p class="service_text">increase sales by telling potential customers about your product or service</p>
+            
+             <div class="space"></div>
+            <ul class="about_lists" >
+             <li> <h5 >Remind existing customers about your business</h5></li>
+             <li> <h5 >Change people's attitudes and perceptions of your business</h5></li>
+             <li> <h5 >Make your business first choice for customers, ahead of your competitors</h5></li>
+             <li> <h5 >Generate awareness of your business</h5></li>
+             <li> <h5 >Develop a particular market niche or position</h5></li>
+             
+             </ul>
+            
+            <div class="space"></div>
+            
+			</div>
+            
+            
+            <!-----------------------block01------------------------->
+            
+            
+            
+            
+            <div id="option_area">
+		  	
+		   	<h2 class="title_box">&nbsp; CONTACT US </h2>
+		   	
+			<div class="space"></div>
+            <p class="about_text">For Advertisements</p>
+            
+            <div class="space"></div>
+			
+			<div class="about_infobox">
+            
+			<h5 class="ser_details"> &nbsp; &nbsp;Contact us at</h5>
+             <div class="space"></div>
+             <h5 class="add_details">&nbsp; &nbsp; &nbsp;New No 31, Old No 17, 1st Floor, Sundaram Pillai Street, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Purasaiwalkam, Chennai - 07</h5>
+             <h5 class="ph_details">&nbsp; &nbsp; +(91)-(44)-45554196, 45554197,<br/>
+             						&nbsp; &nbsp;   9710420005, 9884025331</h5>
+            
+			</div>
+            
+            <div class="space"></div>
+            
+            <div id="contact_form">
+            
+            <div class="space"></div>
+            	<div class="form">
+                <h4 class="form_text">Name<span class="main">*</span></h4>
+                <input name="Input" type="text" class="form_textfiled" />
+                </div>
+                <div class="space"></div>
+                
+                <div class="form">
+                <h4 class="form_text">E-mail<span class="main">*</span></h4>
+                <input name="Input" type="text" class="form_textfiled" />
+                </div>
+                <div class="space"></div>
+                
+                
+                <div class="form">
+                <h4 class="form_text">Conform-Email<span class="main">*</span></h4>
+                <input name="Input" type="text" class="form_textfiled" />
+                </div>
+                <div class="space"></div>
+                
+                <div class="form">
+                <h4 class="form_text">Address<span class="main">*</span></h4>
+                <input name="Input" type="text" class="form_textfiled01" />
+                </div>
+                <div class="space"></div>
+                
+                 <div class="form">
+                <h4 class="form_text">City<span class="main">*</span></h4>
+                <input name="Input" type="text" class="form_textfiled" />
+                </div>
+                <div class="space"></div>
+                
+                  <div class="form">
+                <h4 class="form_text">Country<span class="main">*</span></h4>
+                <select name="" class="form_textfiled">
+                  <option>India</option>
+                  <option>USA</option>
+                  <option>Uk</option>
+                </select>
+                
+                </div>
+                <div class="space"></div>
+                
+                
+                <div class="form">
+                <h4 class="form_text">State<span class="main">*</span></h4>
+                <select name="" class="form_textfiled">
+                  <option>Andhra Pradesh</option>
+                  <option>Tamil Naidu</option>
+                  <option>Karnataka</option>
+                </select>
+                
+                </div>
+                <div class="space"></div>
+                
+                <div class="form">
+                <h4 class="form_text">ZIP Code<span class="main">*</span></h4>
+                <input name="Input" type="text" class="form_textfiled" />
+                </div>
+                <div class="space"></div>
+                
+                <div class="form">
+                <h4 class="form_text">Phone NO<span class="main">*</span></h4>
+                <input name="Input" type="text" class="form_textfiled" />
+                </div>
+                <div class="space"></div>
+                
+                <div class="form">
+                	
+                  <input name="input2" type="button" class="button1" value="Submit" />
+                  <input name="input3" type="button" class="button1" value="Reset" />
+                </div>
+                <div class="space"></div>
+                
+                
+                
+                
+
+                
+                
+                
+                
+                         
+            </div>
+            
+            
+</body>
+</html>
+
+

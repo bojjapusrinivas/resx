@@ -1,0 +1,414 @@
+a,
+a:hover,
+a:focus {
+    color: #ff0009;
+}
+
+/* === Navbar === */
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:focus {
+    color: #000;
+}
+.navbar-default .navbar-brand:hover {
+    color: #fff;
+}
+.navbar-default,
+.navbar-default.navbar-fixed-top.navbar-shrink {
+    background-color: #fff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+.navbar-default .navbar-nav > li > a {
+    color: #000;
+    font-weight: normal;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li.active > a,
+.navbar-default .navbar-nav>.active>a {
+    color: #ff0009 !important;
+}
+.navbar-default.navbar-fixed-top.navbar-shrink .navbar-nav > li > a {
+    color: #000000;
+}
+.navbar-default.navbar-shrink .navbar-nav > li > a:hover,
+.navbar-default.navbar-shrink .navbar-nav > li > a:focus,
+.navbar-default.navbar-shrink .navbar-nav > li.active > a {
+    color: #000;
+}
+.navbar-default.navbar-shrink .navbar-nav > li.active > a {
+    -webkit-box-shadow: inset 0 3px #fff !important;
+    -moz-box-shadow: inset 0 3px #fff !important;
+    box-shadow: inset 0 3px #fff !important;
+}
+.navbar-default .dropdown-menu {
+    border: 1px solid #fff;
+    border-top: 2px solid #fff;
+    -webkit-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > li > a.active,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+    color: #ffff;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #fff;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    background-color: transparent;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li.active > a {}
+
+/* Navbar inverse */
+
+.navbar-inverse {
+    background-color: #111;
+    color: #ff0009;
+}
+.navbar-inverse .navbar-brand {
+    color: #ff0009;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #ff0009;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+    background-color: transparent;
+    color: #111;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus,
+.navbar-inverse .navbar-nav > li.active > a {
+    color: #111;
+}
+
+/* Navbar inverse dropdown */
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+    color: #111;
+}
+.navbar-inverse .dropdown-menu {
+    background-color: #1F1F1F;
+    border: 1px solid #111;
+    border-top: 2px solid #111;
+}
+.navbar-inverse .dropdown-menu > li > a {
+    color: #ff0009;
+}
+.navbar-inverse .dropdown-menu > li > a:hover,
+.navbar-inverse .dropdown-menu > li > a:focus {
+    color: #111;
+}
+
+/* Navbar fixed */
+
+.navbar-default.navbar-fixed-top.navbar-shrink .navbar-brand {
+    color: #fff;
+}
+.navbar-default.navbar-fixed-top.navbar-shrink .navbar-brand:hover {
+    color: #111;
+}
+
+/* Navbar fixed inverse */
+
+.navbar-inverse.navbar-fixed-top.navbar-shrink {
+    background-color: #111;
+}
+.navbar-inverse.navbar-fixed-top.navbar-shrink .navbar-nav > li > a {
+    color: #ff0009;
+}
+.navbar-inverse.navbar-fixed-top.navbar-shrink .navbar-nav > .active > a,
+.navbar-inverse.navbar-fixed-top.navbar-shrink .navbar-nav > .active > a:hover,
+.navbar-inverse.navbar-fixed-top.navbar-shrink .navbar-nav > .active > a:focus,
+.navbar-inverse.navbar-fixed-top.navbar-shrink .navbar-nav > li > a:hover,
+.navbar-inverse.navbar-fixed-top.navbar-shrink .navbar-nav > li > a:focus,
+.navbar-inverse.navbar-fixed-top.navbar-shrink .navbar-nav > li.active > a {
+    background-color: transparent;
+    color: #111;
+}
+.navbar-fixed-top.navbar-shrink .navbar-brand,
+.navbar-fixed-top.navbar-shrink .navbar-brand:focus,
+body.boxed .body .navbar-inverse.navbar-transparent.navbar-shrink .navbar-brand {
+    color: #ff0009;
+}
+.navbar-fixed-top.navbar-shrink .navbar-brand:hover {
+    color: #111;
+}
+
+/*====Banner_IMAGE=====*/
+
+.banner_images {
+    margin-top: 50px;
+}
+
+/* === Text Carousel === */
+
+#text-carousel-intro-section {
+    background-color: #FEFFFF;
+}
+
+/* === Rotate Box === */
+
+.rotate-box-1.square-icon .rotate-box-icon,
+.rotate-box-2.square-icon .rotate-box-icon {
+    background-color: #363940;
+}
+
+/* === Progress Bar === */
+
+.progress {
+    border: 3px solid #363940;
+    background-color: transparent;
+}
+.progress-bar {
+    background-color: #ff0009;
+}
+
+/* === CTA Section, Social & Partners === */
+
+.cta-section,
+#partners-section,
+#social-section {
+    background: #f8f8f8 url('../../img/pat-bg.png') repeat;
+}
+
+/* === Portfolio === */
+
+.active_prot_menu a,
+.portfolio_menu ul li a:hover {
+    background: #363940 !important;
+    color: #fff !important;
+}
+.portfolio_single_content div {
+    background: none repeat scroll 0 0 rgba( 54, 57, 64, 0.95);
+}
+
+/* === Team === */
+
+.team-hover {
+    background: none repeat scroll 0 0 rgba( 54, 57, 64, 0.9);
+}
+
+/* === Price === */
+
+.prices .panel-default .panel-heading {
+    box-shadow: inset 0px 4px 0px #363940;
+}
+.prices .price-box-featured .panel-heading {
+    background-color: #363940;
+    color: #FFF;
+}
+.prices .price-box-featured .panel-footer {
+    box-shadow: inset 0px -4px 0px #363940;
+}
+.prices .price-box-featured .price-box-ribbon {
+    color: #363940;
+}
+
+/* === Contact === */
+
+#contact-section {
+    background-color: #363940;
+}
+#contact-section .contact .contact-form button {
+    background-color: #363940;
+}
+#contact-section .contact .contact-form button:hover {
+    background-color: #ff0009;
+}
+
+/* === Footer === */
+
+.footer-top {
+    background-color: #363940;
+}
+.footer {
+    background-color: #2d3035;
+}
+#subscribe > button[type="submit"] {
+    background: none repeat scroll 0 0 #ff0009;
+}
+#subscribe > button[type="submit"]:hover {
+    background: none repeat scroll 0 0 #111;
+}
+.tweet-content span {
+    color: #111;
+}
+
+/* === Buttons === */
+
+.btn-default,
+.btn-default:focus,
+.btn-default.focus,
+.btn-default:active,
+.btn-default.active {
+    background: #363940;
+    color: #fff;
+}
+.btn-default:hover {
+    color: #fff;
+    background: #ff0009;
+}
+.btn-primary,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active {
+    background-color: #032642;
+    color: #FFF;
+}
+.btn-primary:hover {
+    background-color: #ED1F27;
+    color: #FFF;
+}
+.btn-danger,
+.btn-danger:focus,
+.btn-danger.focus,
+.btn-danger:active,
+.btn-danger.active {
+    background-color: #E7392D;
+    color: #FFF;
+}
+.btn-danger:hover {
+    background-color: #D81508;
+    color: #FFF;
+}
+
+/* === To Top === */
+
+.scrolltotop {
+    color: #ff0009;
+    border: 2px solid #ff0009;
+}
+
+/*=========Apply now =======*/
+
+.apply {
+    position: fixed;
+    bottom: 0px;
+    padding: 10px 0;
+}
+.apply_top {
+    position: relative;
+    z-index: 1;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    animation-name: move_top;
+    animation-duration: 2s;
+}
+.apply_top2 {
+    position: fixed;
+    top: 65px;
+    right: 4%;
+    z-index: 1;
+    width: 100%;
+    right: 0px;
+    left: 0px;
+    margin: 0px;
+    padding: 0px;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    animation-name: move_top;
+    animation-duration: 2s;
+}
+
+/* Chrome, Safari, Opera */
+
+@-webkit-keyframes move_top {
+    from {
+        top: 0px opacity: 0
+    }
+    to {
+        top: 150;
+        opacity: 1
+    }
+}
+
+/* Standard syntax */
+
+@keyframes move_top {
+    from {
+        top: 0px opacity: 0
+    }
+    to {
+        top: 150;
+        opacity: 1
+    }
+}
+
+/*==========FORM STYLES=======*/
+
+.other_spe {
+    margin-top: 10px !important;
+}
+.form_bar {
+    padding-top: 5px;
+    padding-bottom: 5px
+}
+.form_bar2 {
+    padding-top: 3px;
+    padding-bottom: 3px
+}
+@media (max-width: 1024px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin: 7.5px -15px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in {
+        display: block !important;
+        visibility: visible
+    }
+}
+
+/* Small Devices, Tablets */
+
+@media only screen and (max-width: 767px) {
+    .navbar-collapse {
+        background-color: #F4F5F7;
+        border-color: #ff0009 !important;
+    }
+    .navbar-default.navbar-shrink .navbar-nav > li.active > a {
+        box-shadow: none !important;
+    }
+    .navbar-nav > li > a:hover,
+    .navbar-nav > li > a:focus,
+    .navbar-nav > li.active > a {
+        color: #111;
+    }
+}

@@ -1,0 +1,272 @@
+<%@ Language=VBScript %>
+<!--#include file="ASPIncludes/DBopen.asp"-->
+<!--#include file="ASPIncludes/ADOVBS.inc"-->
+<!--include file="ASPIncludes/SendEmail.asp"-->
+<%
+
+If trim(session("User_Name"))="" then
+	Response.Redirect ("Default.asp?message=sesexp")
+End if
+
+%>
+
+<html>
+<head>
+<title>View Analysts Data</title>
+<script language="JavaScript">
+function submitval(actval)
+{
+	var updateval;
+	updateval = confirm("Confirm, Do you want to send email.");
+	if (updateval==true)
+	{
+		window.frmsis.method="post";
+		window.frmsis.action="Frm_SIS_ViewSelectedSlots.asp";
+		window.frmsis.submit();
+	}	
+}
+function Validate(theForm)
+{
+  if (theForm.ID.value == "")
+  {
+    alert("Please Enter Candidate ID in the \"Candidate ID\" field.");
+    theForm.ID.focus();
+    return (false);
+  }
+
+return (true);
+}
+function OpenWin(num)
+	{ 
+		myWin = open("ApplicantInfo.asp?ID="+num+"#callID1" ,"userwin","width=780,top=5,left=5,height=550,status=no,toolbar=no,menubar=no,scrollbars=yes");
+	}
+
+function OpenWin1(num)
+{
+		window.frmsis.method="post";
+		window.frmsis.action="Frm_SIS_ViewSelectedSlots.asp?num1mail="+num;
+		window.frmsis.submit();
+}
+</script>
+
+</head>
+<body topmargin="0" leftmargin="0" bottommargin="0" rightmargin="0">
+<table width="100%" height="100%" align="center" border="0">			
+<tr><td colspan="2" valign="top"><!--#include file="ASPIncludes/TopStrip.asp"--></td></tr>
+<tr><td width="15%" height="100%" height="100%"  bgcolor="#73AEBD" valign="top"><!--#include file="ASPIncludes/sideStrip.asp"--></td>
+<td valign="top" align="center">
+<table border="0" width="75%" bordercolor="#005563" cellspacing="0" cellpadding="0"> 
+<tr><td height="10"></td></tr>
+</table> 
+ <%if trim(request("ttype"))="" then
+	ttype = "All"
+	ttype1 = ""
+  else
+    ttype = trim(request("ttype"))
+	ttype1 = trim(request("ttype"))
+  end if%>
+<table border="1" width="95%" bordercolor="#005563" cellspacing="0" cellpadding="0" style="border-collapse:collapse;"> 
+ <tr>
+    <td width="100%" bgcolor="#005563"><p align="center"><strong><big><font color="#FFFFFF">View Selected Slots [<%=ttype%>]</font></big></strong></td>
+  </tr>
+  <tr>
+    <td width="100%" bgcolor="#005563"><p align="center"><font color='red'>
+    <%if trim(request("message"))="2" then%>
+		Status Updated successfully
+    <%end if%>
+    </font></p></td>
+  </tr>
+  <form name="frmsis" method="post">
+  <tr>
+    <td width="100%"><div align="center"><center>
+    <table align="center" width="100%" border="1" bordercolor="black" cellpadding="2" cellspacing="2" bgcolor="#f0e5dd" style="border-collapse:collapse;">
+	<tr><td colspan="7"><font size='1' face=verdana>
+	<b>Note :</b><br>1. This section will have only pending applications, for approved applications click on "Viewed Requests" link on left strip.
+	<br>2. Click on <b>View</b> link to view the complete data of the user and change the status of the individual applicant.
+	<br>3. Click on <b>Accept</b>, <b>Decline</b> or <b>Hold</b> link to change the status of the individual applicant.
+	<br>4. Select the check box in the <b>Option</b> and click on the button given below to change the status of the selected applicants.
+	</font></td></tr>
+           <tr>
+                   <td colspan=6 align="center" >
+                      <table cellpading=5 cellspacing=5 width="50%" border=1 bordercolor="black" style="border-collapse:collapse;">
+																	<%     
+																		dim vardate,vartotcount
+con.open "Provider="&drivertype&";data source="&servertype&";uid="&userid&";pwd="&pwd&";initial catalog="&trim(dbname) 
+																		Set rsData =Server.CreateObject("ADODB.Recordset")
+																		rsData.ActiveConnection = con
+																		rsData.CursorType = 3
+																		sqlData="select  *, dbo.ReturnCountofHydSlots(Slote_ID) AS Slotecount, dbo.ReturnCountofHydSlots(0) AS totalcount from Interview_Slots where Slote_Display_Date>='12/08/2019' and Location='Hyderabad' ORDER BY Slote_Date,Slote_ID"
+																		rsData.Open sqlData
+																		IF not rsData.EOF THEN	
+																			vardate = ""
+																			while not rsData.EOF
+																				if vardate <> rsData("Slote_Date") then%>                                  
+																					<tr><td height="25" bgcolor="#f0e5dd" colspan=2><b><font size='2' face=verdana color="#000056"><%= FormatDateTime(rsData("Slote_Date"),1)%>&nbsp;&nbsp;</font></b><br></td></tr>
+																				<%end if%>
+																				<%IF trim(Ucase(rsData("Status")))="Y" then%>																						
+																					<%if cint(rsData("Slotecount")) >= cint(rsData("Slote_Strength")) then%> 
+            				                                     
+															                                                        <tr><td height="15" width=50%>&nbsp;&nbsp;<font size='2' face=verdana><%=rsData("Slote_Time")%>&nbsp;</font></td><td> <font color="red"  size='2' face=verdana><b>Full&nbsp;(<%=rsData("Slotecount")%>)</b></font></td></tr>
+                                       																	<%else%> 
+																						<tr><td height="15" width=50%>&nbsp;&nbsp;<font size='2' face=verdana><%=rsData("Slote_Time")%>&nbsp;</font></td><td>  <font color="green"  size='2' face=verdana><b>Open&nbsp;(<%=rsData("Slotecount")%>)</b></font></td></tr>						
+																					<%end if%>																						
+																				<%ELSE%>  
+                                                        														 <%if cint(rsData("totalcount")) >= 300 then%> 
+               																						
+																						       <tr><td height="15" width=50%>&nbsp;&nbsp;<font size='2' face=verdana><%=rsData("Slote_Time")%>&nbsp;</font></td><td>  <font color="green"  size='2' face=verdana><b>Open&nbsp;(<%=rsData("Slotecount")%>)</b></font></td></tr>
+																					<%else%>
+																						        <tr><td height="15" width=50%>&nbsp;&nbsp;<font size='2' face=verdana><%=rsData("Slote_Time")%>&nbsp;</font></td><td>  <font color="red"  size='2' face=verdana><b>&nbsp;(<%=rsData("Slotecount")%>)</b></font></td></tr>                                                                                                                                                      
+																					 <%end if%>
+                                       																	
+																				<%END IF	
+																				vardate = rsData("Slote_Date")
+                                              														        vartotcount=rsData("totalcount")
+																				rsData.MoveNext 
+																			wend
+																		else
+																			
+																		End if
+																		set rsData=nothing
+con.close
+																	%>
+                                                                                                                                        <tr><td height="15" width=50%>&nbsp;&nbsp;<font size='2' face=verdana color="Red"><b>Total&nbsp;</b></font></td><td>  <font color="red"  size='2' face=verdana><b>&nbsp;<%=vartotcount%></b></font></td></tr>                                                                                                                                                      
+																</table>
+
+                    </td>
+        
+          </tr>
+
+	<tr>
+		<td colspan="7">
+		<%	
+		''add data to database
+		  '' for paging
+		dim k,rec_per_page
+		rec_per_page=50
+		Dim Cp,rowcount,i
+			cp=Request.QueryString("Cp")
+			EforEdit=Request.QueryString("E")
+		if cp="" then
+			cp=1
+			EforEdit=cint(rec_per_page)
+		end if 
+		cpForEdit=cp
+		con.open "Provider="&drivertype&";data source="&servertype&";uid="&userid&";pwd="&pwd&";initial catalog="&trim(dbname)  			
+		Set rsDisp =Server.CreateObject("ADODB.Recordset")
+		rsDisp.ActiveConnection = con
+		rsDisp.CursorType = 3
+		rsDisp.PageSize = cint(rec_per_page)
+		if trim(session("user_type"))="1" then
+			if trim(request("candname"))<>"" then		
+				usql1="select *,dbo.ReturnSlotDetails(b.SelectedSlot) as SlotDetails,dbo.ReturnCountofSlots(b.SelectedSlot) as slotCount from TBL_SIS_Applications a, Interview_Hyd_SelSlots b where b.Rec_ID=a.Rec_ID and (b.Date_Updated<>'' or b.Date_Updated is not null) and b.SelectedSlot<>'' and user_name like ('%"&trim(Request("candname"))&"%') order by b.SelectedSlot"
+			else
+				usql1="select *,dbo.ReturnSlotDetails(b.SelectedSlot) as SlotDetails,dbo.ReturnCountofSlots(b.SelectedSlot) as slotCount from TBL_SIS_Applications a, Interview_Hyd_SelSlots b where b.Rec_ID=a.Rec_ID and (b.Date_Updated<>'' or b.Date_Updated is not null) and b.SelectedSlot<>'' and User_Status=11 and a.rec_id>=1129 order by b.SelectedSlot,a.rec_id"
+			end if
+		else
+			if trim(request("candname"))<>"" then
+				usql1="select *,dbo.ReturnSlotDetails(b.SelectedSlot) as SlotDetails,dbo.ReturnCountofSlots(b.SelectedSlot) as slotCount from TBL_SIS_Applications a, Interview_Hyd_SelSlots b where b.Rec_ID=a.Rec_ID and (b.Date_Updated<>'' or b.Date_Updated is not null) and b.SelectedSlot<>'' and user_name like ('%"&trim(Request("candname"))&"%') and user_status=11 order by b.SelectedSlot,a.rec_id"
+			else
+				usql1="select *,dbo.ReturnSlotDetails(b.SelectedSlot) as SlotDetails,dbo.ReturnCountofSlots(b.SelectedSlot) as slotCount from TBL_SIS_Applications a, Interview_Hyd_SelSlots b where b.Rec_ID=a.Rec_ID and (b.Date_Updated<>'' or b.Date_Updated is not null) and b.SelectedSlot<>'' and User_Status=11 and a.rec_id>=1129  order by b.SelectedSlot,a.rec_id"
+			end if
+		end if
+		'''response.write usql1
+		rsDisp.Open usql1
+		''paging
+		'rsDisp.movefirst
+		rowcount = 0
+		Start = 1
+		E = cint(rec_per_page)
+		i = rsDisp.RecordCount
+		p = i
+		if i>cint(rec_per_page) then
+			Response.Write ("<table width='100%' style='border-collapse:collapse'><tr bgcolor='white'><td><font face=verdana size=2 color=""blue""><b>Pages:")
+			for i=1 to rsDisp.PageCount%>			
+				<a href="Frm_SIS_ViewSelectedSlots.asp?Start=<%=Start%>&amp;E=<%=E%>&amp;Cp=<%=i%>&candname=<%=trim(request("candname"))%>&ttype=<%=ttype1%>"><%=i%></a>			
+				<% start = start+cint(rec_per_page)
+				E = E+cint(rec_per_page)
+			next  
+		   	if cp >= 1 then
+				Response.Write ("</td><td  align=right width='30%'><font size='2' face=verdana color=""blue""><b>Page :&nbsp;<b>"&Cp&"") 
+			end if  
+				Response.Write ("</td></tr></table>")
+		end if 	
+		if cp > 1 then		 	 
+			 rsDisp.AbsolutePosition = Request.QueryString("Start")
+		END IF 
+		Response.Write ("<tr>")
+			'Response.Write ("<th><font face=""verdana"" size=""2"">Option</font></th>")
+			Response.Write ("<th><font face=""verdana"" size=""2"">Sl. No</font></th>")
+			Response.Write ("<th><font face=""verdana"" size=""2"">User Name</font></th>")
+			Response.Write ("<th><font face=""verdana"" size=""2"">Email ID</font></th>")
+			Response.Write ("<th><font face=""verdana"" size=""2"">Phone</font></th>")
+			Response.Write ("<th><font face=""verdana"" size=""2"">Date Selected</font></th>")
+			Response.Write ("<th><font face=""verdana"" size=""2"">Slots</font></th>")
+			'Response.Write ("<th><font face=""verdana"" size=""2"">Options</font></th>")
+		Response.Write ("</tr>")
+		IF not rsDisp.EOF THEN
+			j=1
+			no = trim(Request.QueryString("Start"))
+			if no = "" then
+				no = 1
+			else
+				no = no
+			end if
+			startEdit=no
+			while not rsDisp.EOF and rowcount<rsDisp.PageSize
+				dim UsrStat
+				if trim(rsDisp("User_Status"))="1" then
+					UsrStat = "<font color='black'>Pending</font>"
+				elseif trim(rsDisp("User_Status"))="2" then
+					UsrStat = "<font color='green'>Approved</font>"
+				elseif trim(rsDisp("User_Status"))="3" then
+					UsrStat = "<font color='red'>Declined</font>"
+				elseif trim(rsDisp("User_Status"))="5" then
+					UsrStat = "<font color='blue'>Hold</font>"
+				end if
+				Response.Write ("<tr bgcolor='white'>")
+					'if trim(ucase(rsDisp("mail_sent")))="Y" then
+					'	Response.Write ("<td align='center'>-Sent-</td>")
+					'else
+					'	Response.Write ("<td align='center'><input type=""checkbox"" checked name=""chk"&rsDisp("Rec_id")&"""></td>")
+					'end if
+					Response.Write ("<td align='center'><a href='javascript:OpenWin("& rsDisp("Rec_id") &");'><font face='verdana' size='2'>"& no &"</font></a></td>")
+					Response.Write ("<td align='left'><font face='verdana' size='2'>"& rsDisp("User_Name") &"("& rsDisp("Rec_id") &")</font></td>")
+					Response.Write ("<td align='left'><font face='verdana' size='2'>"& rsDisp("User_Email") &"</font></td>")
+					Response.Write ("<td align='left'><font face='verdana' size='2'>"& rsDisp("User_Phone") &"</font></td>")
+					Response.Write ("<td align='center'><font face='verdana' size='2'>"& rsDisp("Date_Updated") &"</font></td>")
+					Response.Write ("<td align='left'><font face='verdana' size='2' ><b>"& rsDisp("SlotDetails") &"<b></font></td>")
+					'if trim(ucase(rsDisp("mail_sent")))="Y" then
+						'Response.Write ("<td align='center'>Sent</td>")
+					'else
+						'Response.Write ("<td align='center'><a href='javascript:OpenWin1("& rsDisp("Rec_id") &");'><font face='verdana' size='2'>Send mail</font></a></td>")
+					'end if
+				Response.Write ("</tr>")
+				j=j+1
+				no=no+1
+				rowcount=rowcount+1
+			rsDisp.MoveNext
+			wend
+		else
+			Response.Write ("<tr bgcolor='white'>")
+					Response.Write ("<td colspan=7 align=center><font face='verdana' size='2' color='red'>-- No Records Found --</font></td>")					
+			Response.Write ("</tr>")
+		End if
+		set rsDisp=nothing
+		con.close()
+		Response.Write ("<tr bgcolor='white'>")
+				'Response.Write ("<td colspan=7 align=left><input type=""submit"" name=""butnvalue"" value=""Send mail"" onclick=""javascript:submitval('Accept')""></td>")					
+		Response.Write ("</tr>")
+		%>
+	</table>
+    </center></div></td>
+  </tr>
+  </form>
+</table><br>
+</td></tr>
+<tr><td colspan="2">
+<!--#include file="ASPIncludes/BottomStrip.asp"-->
+</td></tr>
+</table>
+</center></div>
+</body>
+</html>
